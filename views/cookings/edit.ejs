@@ -1,0 +1,36 @@
+<% include ../partials/header%>
+<br>
+<div class="container">
+        <h1 class="mt-5 text-center">Edit <%= cooking.title%></h1>
+    <div class="row">
+           
+            <div style="width:50%" class="my-3 mx-auto">
+                    <form action="/cookings/<%= cooking._id %>?_method=PUT" method="POST">
+                        <div class="form-group">
+                            <label for="chef">Chef:</label>
+                            <input class="form-control" id="chef" type="text" name="cooking[chef]" value="<%= cooking.chef %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">To Prepare:</label>
+                            <input class="form-control" id="title" type="text" name="cooking[title]"  value="<%= cooking.title %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ingridients">Ingridients:</label>
+                            <input  class="form-control" id="ingridients" type="text" name="cooking[ingridients]"  value="<%= cooking.ingridients %>" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="procedure">Procedure:</label>
+                            <textarea class="form-control" id="procedure" name="cooking[procedure]" placeholder="Procedure" rows="5" required><%= cooking.procedure %></textarea> 
+                        </div>
+                        <button class="btn btn-secondary btn-block">Submit</button>
+                    </form>
+                    <a  class="btn btn-outline-warning" href="/cookings">Back</a>
+           
+            </div>
+     </div>
+    
+
+        
+</div>
+
+<% include ../partials/footer%>

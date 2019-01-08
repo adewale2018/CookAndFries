@@ -1,0 +1,60 @@
+<% include ../partials/header%>
+
+<!--- Welcome Section --> <br>
+<div class="container-fluid padding">
+        <div class="row welcome text-center">
+            <div class="col-12">
+                <h1 class="display-4 text-primary">WELCOME TO COOK&amp;FRIES </h1>
+            </div>
+            <hr class="light">
+            <div class="col-12">
+                <p class="lead text-justify">
+                     omnis libero minus assumenda. Doloremque ad odio quibusdam in ullam iste aliquid, obcaecati mollitia! Eum, incidunt sed quaerat ipsum, nulla reiciendis amet harum mollitia repellendus perferendis necessitatibus nobis quidem unde nisi iure doloremque laboriosam quo explicabo ea, esse iste atque ad? At quam ad fugit sed, quaerat ab molestias est, aperiam excepturi provident voluptas illo beatae assumenda delectus.
+                 
+                </p>
+                <p>
+                        <a  class="btn btn-primary btn-md" href="/cookings/new">ADD NEW</a>
+                </p>
+            </div>
+        </div>
+    </div>
+      
+
+    <div class="row text-center">
+            <% cookings.forEach(function(cooking){ %>
+                <div class="col-md-3 col-sm-6">
+                    <div class="img-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1468218298580-9872fec35d8b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" style="display:flex; flex-wrap:wrap;" width="100%" alt="">
+                        <br>
+                        <div class="caption">
+                            <h4 class="text-primary"><strong> <%= cooking.title %></strong></h4>
+                        </div>
+                    </div>
+
+
+                    
+                    <p class="text-success"><strong>CHEF:</strong> <%= cooking.chef %></p>
+                    <p>
+                        <a  class="btn btn-secondary" href="/cookings/<%= cooking._id %>">More Info</a>
+                    </p>
+                   
+                    <!-- <p><strong>INGRIDIENTS:</strong> <%= cooking.ingridients %></p>
+                    <p><strong>PROCEDURE:</strong> <%= cooking.procedure %></p> -->
+            
+                </div>
+                <hr>
+            <% })%>
+
+    </div>
+
+            
+
+
+</div>
+
+
+
+
+
+
+<% include ../partials/footer%>
