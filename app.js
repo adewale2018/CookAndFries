@@ -68,13 +68,10 @@ app.use('/cookings/:id/comments', commentRoutes);
 */
 
 
-// router.get('*', (req, res) => {
-//     res.send('<h1>SORRY! PAGE NOT FOUND</h1>');
-// });
 
-app.listen(5000, () => console.log('Learn $ Teach Cooking Server Started!!!'));
+// app.listen(5000, () => console.log('Learn $ Teach Cooking Server Started!!!'));
 
-// change to this port before hosting on Heroku
-// app.listen(process.env.PORT, process.env.IP, () => {
-//console.log('Learn $ Teach Cooking Server Started!!!');
-//});
+
+app.listen(process.env.PORT, process.env.IP, () => {
+console.log('Learn $ Teach Cooking Server Started!!!');
+});
