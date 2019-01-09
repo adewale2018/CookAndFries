@@ -1,4 +1,27 @@
-
+body{
+  margin: 0;
+  width: 95%
+}
+#p{
+  color: #001f3f;
+}
+.navbar-header a {
+  font-size: 1.5em;
+  color: wheat;
+}
+.navbar-header a:hover {
+  font-size: 1.5em;
+  color: whitesmoke;
+}
+.nav-item a {
+  color: wheat;
+}
+.nav-item a:hover {
+  color: whitesmoke;
+}
+#nav {
+  background-color: #11122b;
+}
 .jumbotron {
     padding: 1rem;
     border-radius: 0;
@@ -14,8 +37,53 @@
     padding-top: 2rem;
   }
   .welcome hr {
-    border-top:  2px solid #b4b4b4;
+    border-top:  2px solid #001f3f;
     width: 95%;
     margin-top: .3rem;
     /* margin-bottom: 1rem; */
   }
+  .grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 20px;
+   }
+.grid-wrapper > .container h2, p {
+    text-align: center;
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 2px;
+    font-size: 1em;
+  }
+
+  .grid-wrapper > .container p {
+    color: #001f3f;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+.box {
+    background-color: #3cbfdd;
+    padding: 30px;
+    margin: 20px;
+}
+
+#img{
+    width: 100%;
+    height: 250px;
+    border: 2px solid wheat;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.container {
+    border: 1px solid #11122b;
+    border-radius: 15px;
+}
+
+footer {
+  text-align: center;
+  background: wheat;
+  color:#11122b;
+  font-size: 0.8em;
+  padding: 5px;
+    
+}
