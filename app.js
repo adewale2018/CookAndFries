@@ -19,7 +19,7 @@ const   commentRoutes = require('./routes/comments'),
 
 
 // mongoose.connect('mongodb://localhost:27017/Learn_And_Teach_Cooking', {useNewUrlParser: true});
-mongoose.connect('mongodb://Adewale2018:Shetima5717@ds251894.mlab.com:51894/cookandfries', {useNewUrlParser: true});
+mongoose.connect('mongodb://adewaleshittu:Shetima5717@ds251894.mlab.com:51894/cookandfries', {useNewUrlParser: true});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
