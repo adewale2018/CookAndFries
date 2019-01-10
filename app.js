@@ -70,9 +70,9 @@ app.use('/cookings/:id/comments', commentRoutes);
 
 
 
-// app.listen(5000, () => console.log('Learn $ Teach Cooking Server Started!!!'));
+app.listen(5000, () => console.log('Learn $ Teach Cooking Server Started!!!'));
 
 
-app.listen(process.env.PORT, process.env.IP, () => {
-console.log('Learn $ Teach Cooking Server Started!!!');
-});
+// app.listen(process.env.PORT, process.env.IP, () => {
+// console.log('Learn $ Teach Cooking Server Started!!!');
+// });
