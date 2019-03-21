@@ -1,8 +1,23 @@
+<br>
 <% include ./partials/header%>
-<h1>REGSITER FORM</h1>
-<form action="/register" method="POST">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button>sign Up</button>
+<br><br><br><br>
+
+<div class="jumbotron jumbotron-fluid" id="register">
+    <h2 class="text-center text-success">REGISTER</h2><br><br>
+    <div class="container">
+    <form action="/register" method="POST">
+  <div class="form-group">
+    <!-- <label for="username">Username</label> -->
+    <input type="text" class="form-control form-control-lg"  placeholder="Enter username" name="username" required>
+  </div><br>
+  <div class="form-group">
+    <!-- <label for="password">Password</label> -->
+    <input type="password" class="form-control form-control-lg" placeholder="Enter Password" name="password" required>
+  </div><br>
+  <button class="btn btn-outline-secondary btn-lg btn-block">Sign up</button>
 </form>
+</div>
+
+</div>
+
 <% include ./partials/footer%>

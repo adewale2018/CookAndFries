@@ -17,7 +17,7 @@ const   commentRoutes = require('./routes/comments'),
         indexRoutes   = require('./routes/index');
 
 let url = process.env.DATABASEURL || "mongodb://localhost:27017/Learn_And_Teach_Cooking";
-mongoose.connect(url);
+mongoose.connect(url, { useNewUrlParser: true });
 // mongoose.connect('mongodb://localhost:27017/Learn_And_Teach_Cooking', {useNewUrlParser: true});
 // mongoose.connect('mongodb://adewaleshittu:Shetima5717@ds251894.mlab.com:51894/cookandfries', {useNewUrlParser: true});
 

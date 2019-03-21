@@ -1,56 +1,62 @@
 <% include ../partials/header%>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <p class="lead">Cooking</p>
-            <div class="list-group">
-                <li class="list-group-item active">Info 1</li>
-                <li class="list-group-item">Info 2</li>
-                <li class="list-group-item">Info 3</li>
-            </div>
-        </div>
-        <div class="col-md-9">
-            <div class="thumbnail">
-                <img class="img-responsive" src="https://images.unsplash.com/photo-1545062960-276bdb808be7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
-                <div class="caption-full">
-                    <h4 class="pull-right">$10.00</h4>
-                    <h4><a class="btn btn-warning" href="">To Prepare <%= cooking.title %></a></h4>
-                
-                        <p><%= cooking.procedure %></p>
-                        <p><em> Submitted by:</em> <%=cooking.author.username %></p>
-                        <% if(currentUser && cooking.author.id.equals(currentUser._id)){ %>
-                        <a class="btn btn-info" href="/cookings/<%= cooking._id%>/edit">Edit</a>
-                    
-                    <form action="/cookings/<%=cooking._id%>?_method=DELETE" method="POST"> 
-                        <button class="btn btn-danger">Delete</button>
-                    </form>
-                    <% } %>
+<div>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 text-left">
+                    <h3 class="text-left">CHEF INFO</h2>
+                    <p>Name of the chef: <%=cooking.author.username %></p>
+                    <p>Title of Recipe: <%= cooking.title %> </p>
+                    <% cooking.comments.forEach((comment) =>{ %>
+                        <p>
+                            <strong><%=comment.author.username %></strong> said <%= comment.text %>
+                        </p>
+                        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                            <a class="btn btn-warning" href="/cookings/<%=cooking._id %>/comments/<%= comment._id%>/edit">Edit</a>
+                            <form action="/cookings/<%=cooking._id %>/comments/<%= comment._id%>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-danger" value="Delete">
+                            </form>
+                        <% } %>
+                    <% }) %>
                 </div>
-            </div>
-        </div>
+                <div class="col-sm-8">
+                    <h2 class="text-center text-success"><%= cooking.title %> </h2>
+                            <h4 class="text-center">To prepare <%= cooking.title %>, the ingridients are as follows: </h4><br>
+                            <h5><%= cooking.ingridients %></h5><br>
+                            <div>
+                                <h2>PROCEDURE</h2>
+                                <p><%= cooking.procedure %></p>
+                            </div>
+                            <p><em> Submitted by:</em> <%=cooking.author.username %></p>
+                            <% if(currentUser && cooking.author.id.equals(currentUser._id)){ %>
+                            <a class="btn btn-info" href="/cookings/<%= cooking._id%>/edit">Edit</a>
+                            <form action="/cookings/<%=cooking._id%>?_method=DELETE" method="POST"> 
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                            <% } %>
+                        </div>
+                    </div>
+                    <p>
+                        <a class="btn btn-success" href="/cookings/<%= cooking._id%>/comments/new">Add New Comment</a>
+                    </p>
+
+                    <% cooking.comments.forEach((comment) =>{ %>
+                        <p>
+                            <strong><%=comment.author.username %></strong> said <%= comment.text %>
+                        </p>
+                        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                        <a class="btn btn-warning" href="/cookings/<%=cooking._id %>/comments/<%= comment._id%>/edit">Edit</a>
+                        <form action="/cookings/<%=cooking._id %>/comments/<%= comment._id%>?_method=DELETE" method="POST">
+                            <input type="submit" class="btn btn-danger" value="Delete">
+                        </form>
+                        <% } %>
+                    
+                    <% }) %>
+                </div>
     </div>
+
 </div>
-<h4>CHEF: <%= cooking.chef %></h4>
-
-<p><%= cooking.ingridients %></p>
-
-<p>
-    <a class="btn btn-success" href="/cookings/<%= cooking._id%>/comments/new">Add New Comment</a>
-</p>
-
-<% cooking.comments.forEach((comment) =>{ %>
-    <p>
-        <strong><%=comment.author.username %></strong> said <%= comment.text %>
-    </p>
-    <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
-    <a class="btn btn-warning" href="/cookings/<%=cooking._id %>/comments/<%= comment._id%>/edit">Edit</a>
-    <form action="/cookings/<%=cooking._id %>/comments/<%= comment._id%>?_method=DELETE" method="POST">
-        <input type="submit" class="btn btn-danger" value="Delete">
-    </form>
-    <% } %>
- 
-<% }) %>
+        
  
 <% include ../partials/footer%>
 

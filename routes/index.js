@@ -24,7 +24,7 @@ router.post('/register', (req, res) => {
             req.flash('error', err.message);
             return res.render('register');
         }
-        passport.authenticate('local')(req, res, function() {
+        passport.authenticate('local')(req, res, () => {
             req.flash('success', 'Welcome to Cook & Fries ' + user.username);
             res.redirect('/cookings');
         });
